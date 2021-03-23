@@ -12,8 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+//import com.example.tp04.NatureFragment;
+import com.example.tp04.AutumnFragment;
 import com.example.tp04.NatureFragment;
 import com.example.tp04.R;
+import com.example.tp04.SpringFragment;
+import com.example.tp04.SummerFragment;
+import com.example.tp04.WinterFragment;
 
 import java.util.Locale;
 
@@ -35,17 +40,27 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     public int getCount() {
         // Nombre de pages à considérer.
-        return 3;
+        return 4;
     }
 
     public Fragment getItem(int position) {
-        switch (position) {
+        switch (position) {/*
             case 0:
                 return NatureFragment.newInstance(0, mContext.getString(R.string.titre_section0));
             case 1:
                 return NatureFragment.newInstance(1, mContext.getString(R.string.titre_section1));
             case 2:
                 return NatureFragment.newInstance(2, mContext.getString(R.string.titre_section2));
+                */
+            case 0:
+                return SpringFragment.newInstance(0,"Printemps");
+            case 1:
+                return SummerFragment.newInstance(1,"Eté");
+            case 2:
+                return AutumnFragment.newInstance(2,"Automne");
+            case 3:
+                return WinterFragment.newInstance(3,"Hiver");
+
         }
         return null;
     }
@@ -55,6 +70,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         String titre="";
         Drawable icon=null;
         switch (position) {
+            /*
             case 0:
                 titre = mContext.getString(R.string.titre_section0).toUpperCase(l);
                 icon = mContext.getResources().getDrawable(R.drawable.ic_mineral);
@@ -66,6 +82,23 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 titre = mContext.getString(R.string.titre_section2).toUpperCase(l);
                 icon = mContext.getResources().getDrawable(R.drawable.ic_animal);
+                break;
+             */
+            case 0:
+                titre = mContext.getString(R.string.titre_section0).toUpperCase(l);
+                icon = mContext.getResources().getDrawable(R.drawable.ic_mineral);
+                break;
+            case 1:
+                titre = mContext.getString(R.string.titre_section1).toUpperCase(l);
+                icon = mContext.getResources().getDrawable(R.drawable.ic_vegetal);
+                break;
+            case 2:
+                titre = mContext.getString(R.string.titre_section2).toUpperCase(l);
+                icon = mContext.getResources().getDrawable(R.drawable.ic_animal);
+                break;
+            case 3:
+                titre = mContext.getString(R.string.titre_section3).toUpperCase(l);
+                icon = mContext.getResources().getDrawable(R.drawable.ic_vegetal);
                 break;
         }
         SpannableString sb = new SpannableString(" " + titre);
