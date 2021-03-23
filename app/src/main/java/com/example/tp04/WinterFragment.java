@@ -1,6 +1,5 @@
 package com.example.tp04;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +9,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import java.util.Locale;
-
 /**
  * une instance de NatureFragment contient ici juste un label
  */
-public class NatureFragment extends Fragment {
+public class WinterFragment extends Fragment {
     // Les champs utilisés par chaque Fragment
     //Ils sont distincts pour chaque NatureFragment instancié
     private String title;
@@ -31,8 +28,8 @@ public class NatureFragment extends Fragment {
      * Retourne une nouvelle instance de ce fragment
      * pour le numéro de section donné.
      */
-    public static NatureFragment newInstance(int position, String title) {
-        NatureFragment fragment = new NatureFragment();
+    public static WinterFragment newInstance(int position, String title) {
+        WinterFragment fragment = new WinterFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, position);
         args.putString(ARG_SECTION_TITLE, title);
@@ -54,6 +51,8 @@ public class NatureFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         TextView tvLabel = (TextView) view.findViewById(R.id.section_label);
         tvLabel.setText(page+1 + " - " + title);
+        ImageView image = (ImageView) view.findViewById(R.id.imageView);
+        image.setImageResource(R.drawable.img_winter);
 
         return view;
     }
