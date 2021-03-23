@@ -63,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-        //ImageView image = (ImageView) findViewById(R.id.imageView);
-        //image.setImageResource(R.drawable.printemps);
-
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
