@@ -6,9 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 public class SeasonsFragment extends Fragment {
     // Les champs utilisés par chaque Fragment
@@ -51,15 +54,35 @@ public class SeasonsFragment extends Fragment {
 
         GridLayout gridLayout = (GridLayout) view.findViewById(R.id.gridLayout);
 
-        ImageView image00 = (ImageView) gridLayout.findViewById(R.id.imageView00);
+        LinearLayout linearLayout = (LinearLayout) gridLayout.findViewById(R.id.linearLayout00);
+        ImageView image00 = (ImageView) linearLayout.findViewById(R.id.imageView00);
         image00.setImageResource(R.drawable.img_spring);
-        TextView tv00 = (TextView) view.findViewById(R.id.textView00);
+        TextView tv00 = (TextView) linearLayout.findViewById(R.id.textView00);
         tv00.setText(R.string.spring);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                SpringFragment sf = new SpringFragment();
+                sf.setArguments(args);
+                fr.replace(R.id.seasonsFragment, sf);
+                fr.commit();
+
+                /*https://stackoverflow.com/questions/16761812/change-viewpager-fragment-by-a-buttonclick
+                ViewPager viewPager = null;
+                viewPager.setCurrentItem(1);
+                */
+
+
+            }
+        });
 
         ImageView image01 = (ImageView) gridLayout.findViewById(R.id.imageView01);
         image01.setImageResource(R.drawable.img_summer);
         TextView tv01 = (TextView) view.findViewById(R.id.textView01);
-        tv01.setText(R.string.spring);
+        tv01.setText(R.string.summer);
 
         ImageView image10 = (ImageView) gridLayout.findViewById(R.id.imageView10);
         image10.setImageResource(R.drawable.img_autumn);
