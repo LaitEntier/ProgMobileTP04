@@ -54,12 +54,12 @@ public class SeasonsFragment extends Fragment {
 
         GridLayout gridLayout = (GridLayout) view.findViewById(R.id.gridLayout);
 
-        LinearLayout linearLayout = (LinearLayout) gridLayout.findViewById(R.id.linearLayout00);
-        ImageView image00 = (ImageView) linearLayout.findViewById(R.id.imageView00);
+        LinearLayout linearLayout00 = (LinearLayout) gridLayout.findViewById(R.id.linearLayout00);
+        ImageView image00 = (ImageView) linearLayout00.findViewById(R.id.imageView00);
         image00.setImageResource(R.drawable.img_spring);
-        TextView tv00 = (TextView) linearLayout.findViewById(R.id.textView00);
+        TextView tv00 = (TextView) linearLayout00.findViewById(R.id.textView00);
         tv00.setText(R.string.spring);
-        linearLayout.setOnClickListener(new View.OnClickListener() {
+        linearLayout00.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
@@ -79,20 +79,59 @@ public class SeasonsFragment extends Fragment {
             }
         });
 
-        ImageView image01 = (ImageView) gridLayout.findViewById(R.id.imageView01);
+        LinearLayout linearLayout01 = (LinearLayout) gridLayout.findViewById(R.id.linearLayout01);
+        ImageView image01 = (ImageView) linearLayout01.findViewById(R.id.imageView01);
         image01.setImageResource(R.drawable.img_summer);
-        TextView tv01 = (TextView) view.findViewById(R.id.textView01);
+        TextView tv01 = (TextView) linearLayout01.findViewById(R.id.textView01);
         tv01.setText(R.string.summer);
+        linearLayout01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
 
-        ImageView image10 = (ImageView) gridLayout.findViewById(R.id.imageView10);
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                SummerFragment smf = new SummerFragment();
+                smf.setArguments(args);
+                fr.replace(R.id.seasonsFragment, smf);
+                fr.commit();
+            }
+        });
+
+        LinearLayout linearLayout10 = (LinearLayout) gridLayout.findViewById(R.id.linearLayout10);
+        ImageView image10 = (ImageView) linearLayout10.findViewById(R.id.imageView10);
         image10.setImageResource(R.drawable.img_autumn);
-        TextView tv10 = (TextView) view.findViewById(R.id.textView10);
+        TextView tv10 = (TextView) linearLayout10.findViewById(R.id.textView10);
         tv10.setText(R.string.autumn);
+        linearLayout10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
 
-        ImageView image11 = (ImageView) gridLayout.findViewById(R.id.imageView11);
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                AutumnFragment af = new AutumnFragment();
+                af.setArguments(args);
+                fr.replace(R.id.seasonsFragment, af);
+                fr.commit();
+            }
+        });
+
+        LinearLayout linearLayout11 = (LinearLayout) gridLayout.findViewById(R.id.linearLayout11);
+        ImageView image11 = (ImageView) linearLayout11.findViewById(R.id.imageView11);
         image11.setImageResource(R.drawable.img_winter);
-        TextView tv11 = (TextView) view.findViewById(R.id.textView11);
+        TextView tv11 = (TextView) linearLayout11.findViewById(R.id.textView11);
         tv11.setText(R.string.winter);
+        linearLayout11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                WinterFragment wf = new WinterFragment();
+                wf.setArguments(args);
+                fr.replace(R.id.seasonsFragment, wf);
+                fr.commit();
+            }
+        });
 
         return view;
     }
