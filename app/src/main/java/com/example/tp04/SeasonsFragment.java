@@ -13,7 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-public class SeasonsFragment extends Fragment {
+public class
+SeasonsFragment extends Fragment {
     // Les champs utilisés par chaque Fragment
     //Ils sont distincts pour chaque NatureFragment instancié
     private String title;
@@ -63,19 +64,8 @@ public class SeasonsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                SpringFragment sf = new SpringFragment();
-                sf.setArguments(args);
-                fr.replace(R.id.seasonsFragment, sf);
-                fr.commit();
-
-                /*https://stackoverflow.com/questions/16761812/change-viewpager-fragment-by-a-buttonclick
-                ViewPager viewPager = null;
-                viewPager.setCurrentItem(1);
-                */
-
-
+                MainActivity activity = (MainActivity) getActivity();
+                activity.viewPager.setCurrentItem(1);
             }
         });
 
@@ -88,12 +78,8 @@ public class SeasonsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                SummerFragment smf = new SummerFragment();
-                smf.setArguments(args);
-                fr.replace(R.id.seasonsFragment, smf);
-                fr.commit();
+                MainActivity activity = (MainActivity) getActivity();
+                activity.viewPager.setCurrentItem(2);
             }
         });
 
@@ -106,12 +92,8 @@ public class SeasonsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                AutumnFragment af = new AutumnFragment();
-                af.setArguments(args);
-                fr.replace(R.id.seasonsFragment, af);
-                fr.commit();
+                MainActivity activity = (MainActivity) getActivity();
+                activity.viewPager.setCurrentItem(3);
             }
         });
 
@@ -124,12 +106,8 @@ public class SeasonsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                WinterFragment wf = new WinterFragment();
-                wf.setArguments(args);
-                fr.replace(R.id.seasonsFragment, wf);
-                fr.commit();
+                MainActivity activity = (MainActivity) getActivity();
+                activity.viewPager.setCurrentItem(4);
             }
         });
 

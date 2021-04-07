@@ -27,6 +27,7 @@ import static com.google.android.material.snackbar.Snackbar.make;
 
 public class MainActivity extends AppCompatActivity {
 
+    public    ViewPager viewPager;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         // Créer un adaptateur qui retourne un fragment pour chacune des sections de l'activité
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         // dire au viewpager d'utiliser cet adaptateur
-        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
